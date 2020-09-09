@@ -1,0 +1,1 @@
+A todo list browser application using local storage made with vanilla JavaScript. 
