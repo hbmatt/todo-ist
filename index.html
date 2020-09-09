@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="stylesheets/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+  <body>
+    <section id="container">
+      <div class="row">
+        <article class="col third bg-g">
+          <div class="project mt">
+            <h2>Default</h2>
+            <ul>
+              <li>task 1</li>
+              <li>task 2</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <h2>Project Name</h2>
+            <ul>
+              <li>task 1</li>
+              <li>task 2</li>
+            </ul>
+          </div>
+
+          <div id="add">
+            <button class="new bg-s" id="newproject">
+              <i class="fa fa-plus"></i> New Project
+            </button>
+          </div>
+        </article>
+
+        <article class="col form hide" id="projectform">
+          <h1>New Project</h1>
+          <form class="f-project">
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+            <label for="desc">Description:</label>
+            <textarea name="desc"></textarea>
+
+            <button class="bg-p">Submit</button>
+          </form>
+        </article>
+
+        <article class="col form hide" id="taskform">
+          <div class="corner" id="closetask">
+            <i class="fa fa-times"></i>
+          </div>
+          <h1>New Task</h1>
+          <form class="f-task">
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+            <label for="desc">Description:</label>
+            <input type="text" name="desc">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" name="dueDate">
+            <label for="desc">Priority:</label>
+            <input type="number" name="priority">
+            <label for="desc">Project:</label>
+            <select name="project">
+              <option>Default</option>
+            </select>
+
+            <button class="bg-p">Submit</button>
+          </form>
+        </article>
+
+        <article class="col center vcenter">
+          <button class="bg-p" id="newtask">New Task</button>
+        </article>
+
+      </div>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>

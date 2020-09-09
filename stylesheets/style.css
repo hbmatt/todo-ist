@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+.bg-p {
+  background-color: #f3778f !important; }
+
+.bg-s {
+  background-color: #fbad4b !important; }
+
+.bg-g {
+  background-color: #f5f5f5 !important; }
+
+body {
+  background-color: #fff;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  color: #181818;
+  line-height: 1.5; }
+
+button {
+  border: 0;
+  padding: 10px 25px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  font-size: .875rem; }
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+
+.row {
+  display: flex;
+  height: 100%; }
+
+.col {
+  flex: 1;
+  padding: 25px;
+  position: relative;
+  overflow: auto; }
+  .col.third {
+    width: 33.3333333333%;
+    max-width: 350px; }
+  .col.vcenter {
+    align-self: center; }
+  .col.center {
+    text-align: center; }
+
+.mt {
+  margin-top: 1.5rem !important; }
+
+.hide {
+  display: none !important; }
+
+.project {
+  margin-bottom: 1.375rem; }
+  .project h2 {
+    font-size: 1rem;
+    font-weight: 700; }
+  .project h2::before {
+    content: "\f249";
+    font-family: FontAwesome;
+    margin-right: .5rem; }
+  .project li::before {
+    content: "\f096";
+    font: normal normal normal 12px/1.333 FontAwesome;
+    margin: 0 .5rem 0 1rem; }
+
+#add {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  padding-left: 1rem;
+  width: 100%; }
+  #add i {
+    margin-right: .5rem; }
+
+.burger, .corner {
+  text-align: right;
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer; }
+
+#overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.f-project, .f-task {
+  min-width: 350px;
+  width: 50%; }
+  .f-project label, .f-task label {
+    display: block;
+    margin-bottom: 1rem; }
+  .f-project input, .f-task input {
+    border-radius: 2px;
+    border: 1px solid #8a8a8a;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+    font: inherit; }
+    .f-project input:active, .f-project input:focus, .f-task input:active, .f-task input:focus {
+      border-color: #f3778f; }
+  .f-project textarea, .f-task textarea {
+    resize: vertical;
+    max-width: 100%;
+    width: 100%;
+    max-height: 40em;
+    min-height: 8em;
+    border-radius: 2px;
+    border: 1px solid #8a8a8a;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    font: inherit; }
+    .f-project textarea:active, .f-project textarea:focus, .f-task textarea:active, .f-task textarea:focus {
+      border-color: #f3778f; }
+  .f-project select, .f-task select {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    border: none;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    font: inherit;
+    background-color: #f5f5f5; }
+  .f-project button, .f-task button {
+    display: block; }
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  background-color: #fbad4b;
+  display: inline-block;
+  margin: 1rem 0 2rem;
+  padding: .5rem 1rem;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */
