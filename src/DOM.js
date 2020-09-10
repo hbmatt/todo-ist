@@ -57,6 +57,12 @@ const DOMStuff = (() => {
     })
   }
   
+  function addTaskListener(div, task) {
+    div.addEventListener('click', () => {
+      displayTaskCol(task);
+    })
+  }
+
   const displayProject = (project) => {
     const div = document.createElement('div');
     div.classList.add('project');
@@ -70,6 +76,8 @@ const DOMStuff = (() => {
     for (let i = 0; i < project.tasks.length; i++) {
       let task = document.createElement('li');
       task.textContent = project.tasks[i].name;
+      task.classList.add(project.tasks[i].priority.toLowerCase());
+      addTaskListener(task, project.tasks[i]);
       list.appendChild(task);
     };
 
@@ -92,6 +100,8 @@ const DOMStuff = (() => {
 
     const taskElement = document.createElement('li');
     taskElement.textContent = task.name;
+    taskElement.classList.add(task.priority.toLowerCase());
+    addTaskListener(taskElement, task);
     list.appendChild(taskElement);
   }
 
@@ -137,7 +147,8 @@ const DOMStuff = (() => {
     for (let i = 0; i < project.tasks.length; i++) {
       let task = document.createElement('li');
       task.textContent = project.tasks[i].name;
-      task.classList.add(project.tasks[i].priority);
+      task.classList.add(project.tasks[i].priority.toLowerCase());
+      addTaskListener(task, project.tasks[i]);
       list.appendChild(task);
     };
 
@@ -154,7 +165,66 @@ const DOMStuff = (() => {
     });
   }
 
-  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol };
+  const displayTaskCol = (task) => {
+    if (document.getElementById('taskdisplay') !== null) {
+      document.getElementById('taskdisplay').remove();
+    };
+
+    const row = document.getElementsByClassName('row')[0];
+    const add = document.getElementsByClassName('vcenter')[0];
+
+    const col = document.createElement('article');
+    col.classList.add('col');
+    col.setAttribute('id','taskdisplay');
+
+    const corner = document.createElement('div');
+    corner.classList.add('corner');
+    corner.setAttribute('id','closetaskcol');
+    
+    const icon = document.createElement('i');
+    icon.classList.add('fa','fa-times');
+
+    corner.appendChild(icon);
+
+    const title = document.createElement('h1');
+    title.textContent = task.name;
+
+    const desc = document.createElement('p');
+    desc.textContent = task.desc;
+
+    const divider = document.createElement('hr');
+
+    col.appendChild(corner);
+    col.appendChild(title);
+    col.appendChild(desc);
+    col.appendChild(divider);
+    
+    let para = document.createElement('p');
+    let key = document.createElement('strong');
+    key.textContent = 'Due: ';
+    let val = document.createTextNode(`${task.dueDate}`);
+    para.appendChild(key);
+    para.appendChild(val);
+
+    col.appendChild(para);
+
+    para = document.createElement('p');
+    key = document.createElement('strong');
+    key.textContent = 'Priority: ';
+    val = document.createTextNode(`${task.priority}`);
+    para.appendChild(key);
+    para.appendChild(val);
+
+    col.appendChild(para);
+
+    row.insertBefore(col,add);
+
+    corner.addEventListener('click', () => {
+      col.remove();
+    });
+  }
+
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, displayTaskCol };
 })();
 
 export { DOMStuff }

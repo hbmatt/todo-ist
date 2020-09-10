@@ -43,6 +43,7 @@ const ApplicationController = (() => {
       
       DOMStuff.displayTask(newTask);
       DOMStuff.clickCloseNewTask();
+      DOMStuff.displayTaskCol(newTask);
     })
   }
 
