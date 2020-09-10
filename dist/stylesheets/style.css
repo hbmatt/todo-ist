@@ -36,7 +36,7 @@ button {
 
 .col {
   flex: 1;
-  padding: 25px;
+  padding: 25px 30px 25px 25px;
   position: relative;
   overflow: auto; }
   .col.third {
@@ -46,9 +46,6 @@ button {
     align-self: center; }
   .col.center {
     text-align: center; }
-
-.mt {
-  margin-top: 1.5rem !important; }
 
 .hide {
   display: none !important; }
@@ -67,6 +64,17 @@ button {
     font: normal normal normal 12px/1.333 FontAwesome;
     margin: 0 .5rem 0 1rem; }
 
+li::before {
+  content: "\f0c8";
+  font: normal normal normal 12px/1.333 FontAwesome;
+  margin: 0 .5rem 0 1rem; }
+li.high::before {
+  color: #ef67a5; }
+li.medium::before {
+  color: #e2e647; }
+li.low::before {
+  color: #71cac4; }
+
 #add {
   position: absolute;
   bottom: 1rem;
@@ -77,11 +85,11 @@ button {
     margin-right: .5rem; }
 
 .burger, .corner {
-  text-align: right;
   position: absolute;
   top: .5rem;
-  right: 1rem;
+  right: .5rem;
   font-size: 1.25rem;
+  width: 1rem;
   cursor: pointer; }
 
 #overlay {
@@ -144,5 +152,15 @@ h1 {
   border-radius: 2px;
   letter-spacing: 1px;
   color: white; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #8a8a8a;
+  margin: 1.5rem 0; }
+
+p {
+  text-align: justify;
+  margin-bottom: 1.5rem; }
 
 /*# sourceMappingURL=style.css.map */

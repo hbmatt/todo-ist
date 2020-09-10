@@ -50,17 +50,26 @@ const DOMStuff = (() => {
     const closeProject = document.getElementById('closeproject');
     closeProject.click();
   }
+
+  function addProjectListener(div, project) {
+    div.addEventListener('click', () => {
+      displayProjectCol(project);
+    })
+  }
   
-  const displayProject = (name, tasks) => {
+  const displayProject = (project) => {
     const div = document.createElement('div');
     div.classList.add('project');
+
     const title = document.createElement('h2');
-    title.textContent = name;
+    title.textContent = project.name;
+    addProjectListener(title, project);
+
     const list = document.createElement('ul');
 
-    for (let i = 0; i < tasks.length; i++) {
+    for (let i = 0; i < project.tasks.length; i++) {
       let task = document.createElement('li');
-      task.textContent = tasks[0].name;
+      task.textContent = project.tasks[i].name;
       list.appendChild(task);
     };
 
@@ -94,7 +103,58 @@ const DOMStuff = (() => {
     dropdown.appendChild(option);
   }
 
-  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject };
+  const displayProjectCol = (project) => {
+    if (document.getElementById('projectdisplay') !== null) {
+      document.getElementById('projectdisplay').remove();
+    };
+
+    const row = document.getElementsByClassName('row')[0];
+    const add = document.getElementsByClassName('vcenter')[0];
+
+    const col = document.createElement('article');
+    col.classList.add('col');
+    col.setAttribute('id','projectdisplay');
+
+    const corner = document.createElement('div');
+    corner.classList.add('corner');
+    corner.setAttribute('id','closeprojectcol');
+    
+    const icon = document.createElement('i');
+    icon.classList.add('fa','fa-times');
+
+    corner.appendChild(icon);
+
+    const title = document.createElement('h1');
+    title.textContent = project.name;
+
+    const desc = document.createElement('p');
+    desc.textContent = project.desc;
+
+    const divider = document.createElement('hr');
+
+    const list = document.createElement('ul');
+
+    for (let i = 0; i < project.tasks.length; i++) {
+      let task = document.createElement('li');
+      task.textContent = project.tasks[i].name;
+      task.classList.add(project.tasks[i].priority);
+      list.appendChild(task);
+    };
+
+    col.appendChild(corner);
+    col.appendChild(title);
+    col.appendChild(desc);
+    col.appendChild(divider);
+    col.appendChild(list);
+    
+    row.insertBefore(col,add);
+
+    corner.addEventListener('click', () => {
+      col.remove();
+    });
+  }
+
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol };
 })();
 
 export { DOMStuff }

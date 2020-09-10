@@ -68,6 +68,7 @@ const ApplicationController = (() => {
       displayNewProject(newProject);
       DOMStuff.addProjectToDropdown(newProject);
       DOMStuff.clickCloseNewProject();
+      DOMStuff.displayProjectCol(newProject);
     })
   }
 
@@ -75,12 +76,12 @@ const ApplicationController = (() => {
     DOMStuff.clearAllProjects;
 
     for (let i = 0; i < projects.length; i++) {
-      DOMStuff.displayProject(projects[i].name, projects[i].tasks);
+      DOMStuff.displayProject(projects[i]);
     }
   }
 
   function displayNewProject(project) {
-    DOMStuff.displayProject(project.name, project.tasks);
+    DOMStuff.displayProject(project);
   }
 
   return { init }

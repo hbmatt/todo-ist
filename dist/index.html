@@ -36,9 +36,9 @@
         </article>
 
         <article class="col form hide" id="taskform">
-          <div class="corner" id="closetask">
+         <div class="corner" id="closetask">
             <i class="fa fa-times"></i>
-          </div>
+          </div> 
           <h1>New Task</h1>
           <form class="f-task">
             <label for="name">Name:</label>
@@ -48,7 +48,11 @@
             <label for="dueDate">Due Date:</label>
             <input type="date" name="dueDate" id="tdue">
             <label for="desc">Priority:</label>
-            <input type="number" name="priority" id="tpriority">
+            <select name="project" id="tpriority">
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
             <label for="desc">Project:</label>
             <select name="project" id="tproject">
               <option value="0">Default</option>
