@@ -64,6 +64,8 @@ button {
     content: "\f096";
     font: normal normal normal 12px/1.333 FontAwesome;
     margin: 0 .5rem 0 1rem; }
+  .project li.complete::before {
+    content: "\f046"; }
 
 li {
   cursor: pointer; }
@@ -71,6 +73,8 @@ li {
     content: "\f0c8";
     font: normal normal normal 12px/1.333 FontAwesome;
     margin: 0 .5rem 0 1rem; }
+  li.complete::before {
+    content: "\f14a"; }
   li.high::before {
     color: #ef67a5; }
   li.medium::before {
@@ -103,13 +107,13 @@ li {
   right: 0;
   bottom: 0; }
 
-.f-project, .f-task {
+.f-project, .f-task, .f-edit {
   min-width: 350px;
   width: 50%; }
-  .f-project label, .f-task label {
+  .f-project label, .f-task label, .f-edit label {
     display: block;
     margin-bottom: 1rem; }
-  .f-project input, .f-task input {
+  .f-project input, .f-task input, .f-edit input {
     border-radius: 2px;
     border: 1px solid #8a8a8a;
     padding: .5rem;
@@ -117,9 +121,9 @@ li {
     width: 100%;
     max-width: 100%;
     font: inherit; }
-    .f-project input:active, .f-project input:focus, .f-task input:active, .f-task input:focus {
+    .f-project input:active, .f-project input:focus, .f-task input:active, .f-task input:focus, .f-edit input:active, .f-edit input:focus {
       border-color: #f3778f; }
-  .f-project textarea, .f-task textarea {
+  .f-project textarea, .f-task textarea, .f-edit textarea {
     resize: vertical;
     max-width: 100%;
     width: 100%;
@@ -130,9 +134,9 @@ li {
     padding: .5rem;
     margin-bottom: 1rem;
     font: inherit; }
-    .f-project textarea:active, .f-project textarea:focus, .f-task textarea:active, .f-task textarea:focus {
+    .f-project textarea:active, .f-project textarea:focus, .f-task textarea:active, .f-task textarea:focus, .f-edit textarea:active, .f-edit textarea:focus {
       border-color: #f3778f; }
-  .f-project select, .f-task select {
+  .f-project select, .f-task select, .f-edit select {
     max-width: 100%;
     width: 100%;
     display: block;
@@ -142,8 +146,12 @@ li {
     margin-bottom: 1rem;
     font: inherit;
     background-color: #f5f5f5; }
-  .f-project button, .f-task button {
+  .f-project button, .f-task button, .f-edit button {
     display: block; }
+  .f-project .checkbox, .f-task .checkbox, .f-edit .checkbox {
+    display: inline-block;
+    width: auto;
+    margin-right: .5rem; }
 
 h1 {
   font-weight: 700;
