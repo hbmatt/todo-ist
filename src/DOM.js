@@ -185,9 +185,7 @@ const DOMStuff = (() => {
   }
 
   const displayTaskCol = (task) => {
-    if (document.getElementById('taskdisplay') !== null) {
-      document.getElementById('taskdisplay').remove();
-    };
+    removeTaskDisplay();
 
     const row = document.getElementsByClassName('row')[0];
     const add = document.getElementsByClassName('vcenter')[0];
@@ -256,11 +254,28 @@ const DOMStuff = (() => {
 
     col.appendChild(editBtn);
 
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('bg-s');
+    deleteBtn.textContent = 'Delete';
+
+    deleteBtn.addEventListener('click', () => {
+      confirm("Do you really want to delete this task?");
+      ApplicationController.deleteTask(task);
+    });
+
+    col.appendChild(deleteBtn);
+
     row.insertBefore(col,add);
 
     corner.addEventListener('click', () => {
       col.remove();
     });
+  }
+
+  function removeTaskDisplay() {
+    if (document.getElementById('taskdisplay') !== null) {
+      document.getElementById('taskdisplay').remove();
+    };
   }
 
   const displayEditTask = (task) => {
@@ -403,7 +418,7 @@ const DOMStuff = (() => {
     document.getElementById('epriority').value = task.priority;
   }
 
-  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, displayTaskCol, displayEditTask };
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, displayTaskCol, removeTaskDisplay, displayEditTask };
 })();
 
 export { DOMStuff }
