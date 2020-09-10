@@ -65,16 +65,18 @@ button {
     font: normal normal normal 12px/1.333 FontAwesome;
     margin: 0 .5rem 0 1rem; }
 
-li::before {
-  content: "\f0c8";
-  font: normal normal normal 12px/1.333 FontAwesome;
-  margin: 0 .5rem 0 1rem; }
-li.high::before {
-  color: #ef67a5; }
-li.medium::before {
-  color: #e2e647; }
-li.low::before {
-  color: #71cac4; }
+li {
+  cursor: pointer; }
+  li::before {
+    content: "\f0c8";
+    font: normal normal normal 12px/1.333 FontAwesome;
+    margin: 0 .5rem 0 1rem; }
+  li.high::before {
+    color: #ef67a5; }
+  li.medium::before {
+    color: #e2e647; }
+  li.low::before {
+    color: #71cac4; }
 
 #add {
   position: absolute;
