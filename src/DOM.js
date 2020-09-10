@@ -41,8 +41,42 @@ const DOMStuff = (() => {
     closeNewProject();
   }
   
+  const displayProject = (name, tasks) => {
+    const div = document.createElement('div');
+    div.classList.add('project');
+    const title = document.createElement('h2');
+    title.textContent = name;
+    const list = document.createElement('ul');
 
-  return { controlNewTask, controlNewProject };
+    for (let i = 0; i < tasks.length; i++) {
+      let task = document.createElement('li');
+      task.textContent = tasks[0].name;
+      list.appendChild(task);
+    };
+
+    div.appendChild(title);
+    div.appendChild(list);
+
+    const sidebar = document.getElementsByClassName('col')[0];
+    const add = document.getElementById('add');
+
+    sidebar.insertBefore(div, add)
+  }
+
+  const clearAllProjects = () => {
+    document.querySelectorAll(".col .project").forEach(el => el.remove());
+  }
+
+  const displayTask = (task) => {
+    const project = document.getElementsByClassName('project')[task.project];
+    const list = project.querySelector('ul');
+
+    const taskElement = document.createElement('li');
+    taskElement.textContent = task.name;
+    list.appendChild(taskElement);
+  }
+
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask };
 })();
 
 export { DOMStuff }

@@ -12,21 +12,6 @@
     <section id="container">
       <div class="row">
         <article class="col third bg-g">
-          <div class="project mt">
-            <h2>Default</h2>
-            <ul>
-              <li>task 1</li>
-              <li>task 2</li>
-            </ul>
-          </div>
-
-          <div class="project">
-            <h2>Project Name</h2>
-            <ul>
-              <li>task 1</li>
-              <li>task 2</li>
-            </ul>
-          </div>
 
           <div id="add">
             <button class="new bg-s" id="newproject">
@@ -42,9 +27,9 @@
           <h1>New Project</h1>
           <form class="f-project">
             <label for="name">Name:</label>
-            <input type="text" name="name">
+            <input type="text" name="name" id="pname">
             <label for="desc">Description:</label>
-            <textarea name="desc"></textarea>
+            <textarea name="desc" id="pdesc"></textarea>
 
             <button class="bg-p">Submit</button>
           </form>
@@ -57,16 +42,16 @@
           <h1>New Task</h1>
           <form class="f-task">
             <label for="name">Name:</label>
-            <input type="text" name="name">
+            <input type="text" name="name" id="tname">
             <label for="desc">Description:</label>
-            <input type="text" name="desc">
+            <input type="text" name="desc" id="tdesc">
             <label for="dueDate">Due Date:</label>
-            <input type="date" name="dueDate">
+            <input type="date" name="dueDate" id="tdue">
             <label for="desc">Priority:</label>
-            <input type="number" name="priority">
+            <input type="number" name="priority" id="tpriority">
             <label for="desc">Project:</label>
-            <select name="project">
-              <option>Default</option>
+            <select name="project" id="tproject">
+              <option value="0">Default</option>
             </select>
 
             <button class="bg-p">Submit</button>
