@@ -21,7 +21,8 @@ button {
   cursor: pointer;
   font-weight: 700;
   color: #fff;
-  font-size: .875rem; }
+  font-size: .875rem;
+  margin-right: 1rem; }
 
 #container {
   position: absolute;
