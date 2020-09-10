@@ -76,13 +76,24 @@ const ApplicationController = (() => {
   const deleteTask = (task) => {
     const project = projects[task.project];
     project.tasks.splice(project.tasks.indexOf(task), 1);
-    tasks.splice(tasks.indexOf(task),1);
+    tasks.splice(tasks.indexOf(task), 1);
 
     DOMStuff.displayAllProjects(projects);
     DOMStuff.removeTaskDisplay();
   }
 
-  return { init, projects, deleteTask }
+  const deleteProject = (project) => {
+    projects.splice(projects.indexOf(project), 1);
+
+    for (let i = 0; i < project.tasks.length; i++) {
+      tasks.splice(tasks.indexOf(project.tasks[i]), 1);
+    };
+    
+    DOMStuff.displayAllProjects(projects);
+    DOMStuff.removeProjectDisplay();
+  }
+
+  return { init, projects, deleteTask, deleteProject }
 })();
 
 export { ApplicationController }

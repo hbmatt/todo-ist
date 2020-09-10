@@ -130,9 +130,7 @@ const DOMStuff = (() => {
   }
 
   const displayProjectCol = (project) => {
-    if (document.getElementById('projectdisplay') !== null) {
-      document.getElementById('projectdisplay').remove();
-    };
+    removeProjectDisplay();
 
     const row = document.getElementsByClassName('row')[0];
     const add = document.getElementsByClassName('vcenter')[0];
@@ -176,12 +174,29 @@ const DOMStuff = (() => {
     col.appendChild(desc);
     col.appendChild(divider);
     col.appendChild(list);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('bg-p', 'mt');
+    deleteBtn.textContent = 'Delete';
+
+    deleteBtn.addEventListener('click', () => {
+      confirm("Do you really want to delete this project and all its tasks?");
+      ApplicationController.deleteProject(project);
+    });
+
+    col.appendChild(deleteBtn);
     
     row.insertBefore(col,add);
 
     corner.addEventListener('click', () => {
       col.remove();
     });
+  }
+
+  function removeProjectDisplay() {
+    if (document.getElementById('projectdisplay') !== null) {
+      document.getElementById('projectdisplay').remove();
+    };
   }
 
   const displayTaskCol = (task) => {
@@ -366,7 +381,7 @@ const DOMStuff = (() => {
     const completelabel = document.createElement('label');
     completelabel.setAttribute('for','status');
     completelabel.classList.add('checkbox');
-    completelabel.textContent = 'Status';
+    completelabel.textContent = 'Complete';
 
     editForm.appendChild(completebox);
     editForm.appendChild(completelabel);
@@ -418,7 +433,7 @@ const DOMStuff = (() => {
     document.getElementById('epriority').value = task.priority;
   }
 
-  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, displayTaskCol, removeTaskDisplay, displayEditTask };
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, removeProjectDisplay, displayTaskCol, removeTaskDisplay, displayEditTask };
 })();
 
 export { DOMStuff }
