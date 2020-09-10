@@ -24,6 +24,9 @@ button {
   font-size: .875rem;
   margin-right: 1rem; }
 
+.mt {
+  margin-top: 1.5rem; }
+
 #container {
   position: absolute;
   top: 0;
