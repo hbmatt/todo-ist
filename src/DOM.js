@@ -20,6 +20,11 @@ const DOMStuff = (() => {
     closeNewTask();
   }
 
+  const clickCloseNewTask = () => {
+    const closeTask = document.getElementById('closetask');
+    closeTask.click();
+  }
+
   const projectForm = document.getElementById('projectform');
 
   function showNewProject() {
@@ -39,6 +44,11 @@ const DOMStuff = (() => {
   const controlNewProject = () => {
     showNewProject();
     closeNewProject();
+  }
+
+  const clickCloseNewProject = () => {
+    const closeProject = document.getElementById('closeproject');
+    closeProject.click();
   }
   
   const displayProject = (name, tasks) => {
@@ -76,7 +86,15 @@ const DOMStuff = (() => {
     list.appendChild(taskElement);
   }
 
-  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask };
+  const addProjectToDropdown = (project) => {
+    const dropdown = document.getElementById('tproject');
+    const option = document.createElement('option');
+    option.setAttribute('value',`${project.id}`);
+    option.textContent = project.name;
+    dropdown.appendChild(option);
+  }
+
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject };
 })();
 
 export { DOMStuff }

@@ -7,6 +7,8 @@ const ApplicationController = (() => {
   let tasks = [];
 
   const init = () => {
+    DOMStuff.controlNewProject();
+    DOMStuff.controlNewTask();
     addNewTask();
     addNewProject();
     displayAllProjects();
@@ -40,12 +42,12 @@ const ApplicationController = (() => {
       addTasktoProject(newTask, project);
       
       DOMStuff.displayTask(newTask);
+      DOMStuff.clickCloseNewTask();
     })
   }
 
   function addProjectToProjects(project) {
     projects.push(project);
-    console.log(projects);
     return projects.length - 1
   }
 
@@ -64,6 +66,8 @@ const ApplicationController = (() => {
 
       newProject.id = addProjectToProjects(newProject);
       displayNewProject(newProject);
+      DOMStuff.addProjectToDropdown(newProject);
+      DOMStuff.clickCloseNewProject();
     })
   }
 
