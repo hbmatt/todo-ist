@@ -76,6 +76,7 @@ const ApplicationController = (() => {
   const deleteTask = (task) => {
     const project = projects[task.project];
     project.tasks.splice(project.tasks.indexOf(task), 1);
+    tasks.splice(tasks.indexOf(task),1);
 
     DOMStuff.displayAllProjects(projects);
     DOMStuff.removeTaskDisplay();
