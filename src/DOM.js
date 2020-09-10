@@ -129,6 +129,10 @@ const DOMStuff = (() => {
     dropdown.appendChild(option);
   }
 
+  const addAllProjectsToDropdown = (projects) => {
+    projects.forEach(project => addProjectToDropdown(project));
+  }
+
   const displayProjectCol = (project) => {
     removeProjectDisplay();
 
@@ -180,8 +184,9 @@ const DOMStuff = (() => {
     deleteBtn.textContent = 'Delete';
 
     deleteBtn.addEventListener('click', () => {
-      confirm("Do you really want to delete this project and all its tasks?");
-      ApplicationController.deleteProject(project);
+      if (confirm("Do you really want to delete this project and all its tasks?") == true) {
+        ApplicationController.deleteProject(project);
+      }
     });
 
     col.appendChild(deleteBtn);
@@ -264,7 +269,7 @@ const DOMStuff = (() => {
 
     editBtn.addEventListener('click', () => {
       displayEditTask(task);
-      editTask(task);
+      ApplicationController.editTask(task);
     });
 
     col.appendChild(editBtn);
@@ -274,8 +279,9 @@ const DOMStuff = (() => {
     deleteBtn.textContent = 'Delete';
 
     deleteBtn.addEventListener('click', () => {
-      confirm("Do you really want to delete this task?");
-      ApplicationController.deleteTask(task);
+      if (confirm("Do you really want to delete this task?") == true) {
+        ApplicationController.deleteTask(task);
+      }
     });
 
     col.appendChild(deleteBtn);
@@ -406,26 +412,6 @@ const DOMStuff = (() => {
     autoFillTask(task);
   }
 
-  const editTask = (task) => {
-    const taskEditForm = document.getElementById('edittask');
-    const taskForm = taskEditForm.querySelector('form');
-
-    taskForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      task.name = document.getElementById('ename').value;
-      task.desc = document.getElementById('edesc').value;
-      task.dueDate = document.getElementById('edue').value;
-      task.priority = document.getElementById('epriority').value;
-      task.status = (document.getElementsByName('status')[0].checked) ? 1 : 0;
-
-      taskForm.reset();
-      taskEditForm.remove();
-      displayAllProjects(ApplicationController.projects);
-      displayTaskCol(task);
-    })
-  }
-
   function autoFillTask(task) {
     document.getElementById('ename').value = task.name;
     document.getElementById('edesc').value = task.desc;
@@ -433,7 +419,7 @@ const DOMStuff = (() => {
     document.getElementById('epriority').value = task.priority;
   }
 
-  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayAllProjects, displayTask, addProjectToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, removeProjectDisplay, displayTaskCol, removeTaskDisplay, displayEditTask };
+  return { controlNewTask, controlNewProject, displayProject, clearAllProjects, displayAllProjects, displayTask, addProjectToDropdown, addAllProjectsToDropdown, clickCloseNewTask, clickCloseNewProject, displayProjectCol, removeProjectDisplay, displayTaskCol, removeTaskDisplay, displayEditTask };
 })();
 
 export { DOMStuff }
