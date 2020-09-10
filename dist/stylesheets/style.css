@@ -54,7 +54,8 @@ button {
   margin-bottom: 1.375rem; }
   .project h2 {
     font-size: 1rem;
-    font-weight: 700; }
+    font-weight: 700;
+    cursor: pointer; }
   .project h2::before {
     content: "\f249";
     font-family: FontAwesome;
