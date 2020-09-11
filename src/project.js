@@ -4,9 +4,9 @@ const Project = (name, desc) => {
 
   const addTask = (task) => {
     tasks.push(task);
-  }
+  };
 
-  return { name, desc, id, addTask, tasks }
-}
+  return { name, desc, id, addTask, tasks };
+};
 
-export { Project }
+export { Project };

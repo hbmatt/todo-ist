@@ -2,3 +2,4 @@
 /dist/stylesheets/.sass-cache
 *.scss
 style.css.map
+.eslintrc.js

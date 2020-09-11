@@ -1,3 +1,3 @@
-import { ApplicationController } from './application'
+import { ApplicationController } from "./application";
 
 ApplicationController.init();
